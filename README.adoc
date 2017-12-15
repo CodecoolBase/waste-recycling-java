@@ -129,7 +129,7 @@ This file should contain all the logic, what our automated dustbin can do.
 
 ==== Instance fields
 
-* `String color`: storing the dustbin's color
+* `String color`: stores the dustbin's color
 * `PaperGarbage[] paperContent`: an array, stores `PaperGarbage` instances
 * `PlasticGarbage[] plasticContent`: an array, stores `PlasticGarbage` instances
 * `Garbage[] houseWasteContent`: an array, stores `Garbage` instances
