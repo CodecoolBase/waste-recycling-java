@@ -5,7 +5,7 @@ The mentors of Codecool Phnom Pen (capital of Cambodia) are fed up, that despite
 They decided to make an automated dustbin, which can detect different types of garbage, and can put them to different containers automatically.
 
 Mentors at Codecool usually have a whole bunch of things to do, and they aren't exceptions either, so they don't have time to implement the dustbin's software.
-Luckily it's internal computer is capable of running Python scripts...
+Luckily it's internal computer is capable of running Java programs...
 
 Have you found out yet???
 YES, it's your job to implement it in an Object-Oriented way!
