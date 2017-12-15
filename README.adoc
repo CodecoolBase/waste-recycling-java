@@ -1,0 +1,162 @@
+== The Story
+
+It's 2020.
+The mentors of Codecool Phnom Pen (capital of Cambodia) are fed up, that despite the strict house rules, no one cares about collecting the waste in a selective way in the school.
+They decided to make an automated dustbin, which can detect different types of garbage, and can put them to different containers automatically.
+
+Mentors at Codecool usually have a whole bunch of things to do, and they aren't exceptions either, so they don't have time to implement the dustbin's software.
+Luckily it's internal computer is capable of running Python scripts...
+
+Have you found out yet???
+YES, it's your job to implement it in an Object-Oriented way!
+
+== The task
+
+You're required to implement classes in the repository in a patricular in this order
+
+. `Garbage.java`
+. `PlasticGarbage.java`
+. `PaperGarbage.java`
+. `Dustbin.java`
+
+For each file follow these steps, *but watch out*, re-read it _thrice_ (I don't know the equivalent word which would mean four-times, but I should look it up).
+Seriously, re-read it.
+No, dude, seriously.
+
+* Write your code into `Garbage.java` and save it.
+* Compile the sourcefile
+```
+javac Garbage.java
+```
+* If you get no output (there's no error or anything else on the terminal) you've successfully compiled the file.
+* This doesn't mean that it works :)
+  You're not done!
+* After the compilation is done run the tests for that file, e.g. when you've compiled `Garbage.java` do
+```
+javac TestGarbage.java
+```
+* If you get no output for this then you've compiled the test successfully, however this doesn't mean that your code is correct.
+  You're not done!
+* Run the tests, e.g. after you've successfully compiled *both* `Garbage.java` and `TestGarbage.java` do
+```
+java -ea TestGarbage
+```
+* The `-ea` is important it _enables assertions_ in the JVM - you don't to no about this, just use it for now.
+* If you see `OK` in the terminal then your `Garbage` class's implementation is correct, you're done with `Garbage.java`, move to the next step.
+
+Now go, and re-read this.
+I'm being serious here.
+
+== The playground, `Main.java`
+
+There's a file called `Main.java` in the repo.
+You can play around in it, create new instances of `Garbage`, `Dustbin`, etc.
+
+```
+public static void main(String[] args) throws DustbinContentException {
+    Gargabe rottenTomato = new Garbage("rotten tomato");
+    Dustin dustbin = new Dustbin("my favorite dustbin");
+    dustbin.throwOutGarbage(rottenTomato);
+}
+```
+
+As usual, you compile it, then run it (every class that has a `main` method with a signature like in `Main.java` is executable (after compilaton).
+
+```
+javac Main.java
+java Main
+```
+
+== The specification
+
+=== `Garbage.java`
+
+This is the file containing a regular garbage's logic.
+
+==== Instance fields
+
+* `String name`: stores the custom name of the garbage object (e.g. `"rotten tomatoes"`)
+
+==== Instance methods
+
+===== `String getName()`
+
+* when called returns the object.
+
+=== `PaperGarbage.java`
+
+This is the file containing the logic of a garbage made of paper.
+The `PaperGarbage` class inherits the logic of the `Garbage` class.
+
+==== Instance fields
+
+* `String name`: stores the name of the garbage (should be inherited from the `Garbage`)
+* `boolean isSqueezed`: stores if the garbage is squeezed (`true`) or not (`false`)
+
+==== Instance methods
+
+===== `void squeeze()`
+
+* when called it sets the object's `isSqueezed` field to `true`
+
+===== `boolean isSqueezed()`
+
+* when called returns `true` if the object is squeezed, `false` otherwise.
+
+=== `PlasticGarbage.java`
+
+This is the file containing the logic of a garbage made of plastic.
+`PlasticGarbage` class inherits the logic of the `Garbage` class.
+
+==== Instance fields
+
+* `String name`: stores the name of the garbage (should be inherited from the `Garbage`)
+* `boolean isClean`: stores if the garbage is clean (`true`) or not (`false`)
+
+==== Instance methods
+
+===== `void clean()`
+
+* when called, it sets the object's `isClean` attribute to `true`
+
+===== `boolean isClean()`
+
+* when called returns `true` if the object is clean, `false` otherwise.
+
+=== `Dustbin.java`
+
+This file should contain all the logic, what our automated dustbin can do.
+
+==== Instance fields
+
+* `String color`: storing the dustbin's color
+* `PaperGarbage[] paperContent`: an array, stores `PaperGarbage` instances
+* `PlasticGarbage[] plasticContent`: an array, stores `PlasticGarbage` instances
+* `Garbage[] houseWasteContent`: an array, stores `Garbage` instances
+
+==== Instance methods
+
+===== `void throwOutGarbage(garbage) throws DustbinContentException`
+
+* Receives an argument.
+* If the argument is an instance of the `PlasticGarbage` class, and it's clean, then it puts that into the `plasticContent` array.
+  If the `PlasticGarbage` instance is not clean, it raises a `DustbinContentException` exception.
+* If the argument is an intance of the `PaperGarbage` class, and it's squeezed, then it puts that into the `paperContent` array.
+  If the `PaperGarbage` instance is not squeezed, it raises a DustbinContentException exception.
+* If the argument is an instance of the `Garbage` class (but not a `PaperGarbage` or a `PlasticGarbage`), then it puts that into the `houseWasteContent` array.
+* If the argument is not an instance of the classes above, it raises a `DustbinContentException` exception.
+
+===== `void emptyContents()`
+
+* If it's called, `plasticContent`, `paperContent` and `houseWasteContent` array gets emptied.
+
+=== `DustbinContentException.java`
+
+This file contains a custom exception, called `DustbinContentException`, which is raised by the `Dustbin` in some error cases (see below).
+It's already implemented, so you don't have to touch this file at all.
+
+=== `Test*.java`
+
+These files contains test cases for the specification above.
+You mustn't touch it, but it worth checking it, as it can help understand the specification above.
+You're ready with your assignment when all the tests run with success.
