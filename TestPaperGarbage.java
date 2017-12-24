@@ -1,7 +1,7 @@
-public class TestPlasticGarbage {
+public class TestPaperGarbage {
 
     public static void main(String[] args) {
-        TestDustbin test = new TestDustbin();
+        TestPaperGarbage test = new TestPaperGarbage();
         test.testInstantiatingPaperGarbage();
         test.testSqueezeOnPaperGarbage();
         System.out.println("OK");

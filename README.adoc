@@ -210,7 +210,7 @@ This file should contain all the logic, what our automated dustbin can do.
 If it's called it prints all the contents of the dustbin in the following format
 
 ```
-Dirk, the brave little Dustbin!
+Red Dustbin!
 
 House waste content: 2 item(s)
 
@@ -224,7 +224,7 @@ Plastic content: 1 item(s)
     Milk jug
 ```
 
-The first line is the dustbin's `name + " Dustbin!"`.
+The first line is the dustbin's `color + " Dustbin!"`.
 
 ===== `void throwOutGarbage(garbage) throws DustbinContentException`
 
