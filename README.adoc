@@ -82,7 +82,7 @@ for (int i = 0; i < 3; i++) {
 }
 
 // Then we create the plastic milk jug.
-Garbage milkJug = new PlasticGarbage("plastic milk jug");
+Garbage milkJug = new PlasticGarbage("plastic milk jug", false);
 
 /*
  Note that on the leftside the type is Garbage, but on the right it's PlasticGarbage.
@@ -146,6 +146,10 @@ This is the file containing a regular garbage's logic.
 
 * `String name`: stores the custom name of the garbage object (e.g. `"rotten tomatoes"`)
 
+==== Constructors
+
+* `Garbage(String name)`: the class has a single constructor that takes the `name` of the garbage to be created.
+
 ==== Instance methods
 
 ===== `String getName()`
@@ -161,6 +165,11 @@ The `PaperGarbage` class inherits the logic of the `Garbage` class.
 
 * `String name`: stores the name of the garbage (should be inherited from the `Garbage`)
 * `boolean isSqueezed`: stores if the garbage is squeezed (`true`) or not (`false`)
+
+==== Constructors
+
+* `PaperGarbage(String name, boolean isSqueezed)`: the class has a single constructor that takes two parameters `name` (the name of the paper garbage
+and `isSqueezed` (`true` if the garbage is squeezed from the start or `false` otherwise).
 
 ==== Instance methods
 
@@ -181,6 +190,11 @@ This is the file containing the logic of a garbage made of plastic.
 
 * `String name`: stores the name of the garbage (should be inherited from the `Garbage`)
 * `boolean isClean`: stores if the garbage is clean (`true`) or not (`false`)
+
+==== Constructors
+
+* `PlasticGarbage(String name, boolean isClean)`: the class has a single constructor that takes two parameters `name` (the name of the plastic garbage
+and `isClean` (`true` if the garbage is clean from the start or `false` otherwise).
 
 ==== Instance methods
 
@@ -205,6 +219,18 @@ This file should contain all the logic, what our automated dustbin can do.
 
 ==== Instance methods
 
+==== `PaperGarbage[] getPaperContent()`
+
+Accessor for the `paperContent` field.
+
+==== `PlasticGarbage[] getPlasticContent()`
+
+Accessor for the `plasticContent` field.
+
+==== `Garbage[] getHouseWasteContent()`
+
+Accessor for the `houseWasteContent` field.
+
 ===== `void displayContents()`
 
 If it's called it prints all the contents of the dustbin in the following format
@@ -226,7 +252,7 @@ Plastic content: 1 item(s)
 
 The first line is the dustbin's `color + " Dustbin!"`.
 
-===== `void throwOutGarbage(garbage) throws DustbinContentException`
+===== `void throwOutGarbage(Garbage garbage) throws DustbinContentException`
 
 * Receives an argument.
 * If the argument is an instance of the `PlasticGarbage` class, and it's clean, then it puts that into the `plasticContent` array.
