@@ -41,7 +41,7 @@ Yes! It's your job to implement it in an object-oriented way!
       - `getPaperCount()`
       - `getPlasticCount()`
     - `Dustbin` instances provide a way to clear their contents via the `emptyContents()` method
-    - `Dustbin` should provide a way to get its textual representation which should look like this:
+    - `Dustbin` should provide a way to get its textual representation via `toString()` method and it should look like this:
     
       ```
       Green Dustbin!
