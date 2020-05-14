@@ -41,8 +41,8 @@ Yes! It's your job to implement it in an object-oriented way!
       - `getPaperCount()`
       - `getPlasticCount()`
     - `Dustbin` instances provide a way to clear their contents via the `emptyContents()` method
-    - `Dustbin` instances provide a way to display their contents via the `displayContents()` method in the following format
-
+    - `Dustbin` should provide a way to get its textual representation which should look like this:
+    
       ```
       Green Dustbin!
       House waste content: 2 item(s)
@@ -55,6 +55,7 @@ Yes! It's your job to implement it in an object-oriented way!
           Plastic bag nr.2
           Wrapper foil nr.3
       ```
+    - `Dustbin` instances provide possibility to print to the console their textual representation via the `displayContents()` method
 
 2. Define the `Garbage` class in a way that other garbage types could use it as their base/parent class, sharing as many behaviour between parent-child as possible.
 
@@ -75,12 +76,12 @@ Yes! It's your job to implement it in an object-oriented way!
     - `PaperGarbage` instances allow checking whether they are squeezed or not using the `isSqueezed()` method
     - `PaperGarbage` instances provide a way to squeeze them via the `squeeze()` method (if a paper garbage is already squeezed using this method has no effect)
 
-5. In your Main class you write code that serves as a “movie script” for a little story. Think of the contents of the main method as series of things (statements) that happen over time in the life of an ordinary dustbin.
+5. In your Main class write code that serves as a “movie script” for a little story. Think of the contents of the main method as series of things (statements) that happen over time in the life of an ordinary dustbin.
 
     - Create at least one `DustBin` instance and name it as you wish.
     - Create at least one instance of each garbage subtype but store them in `Garbage` variables.
     - Throw all garbage you created into the `DustBin`.
-    - Create a dirty plastic garbase and throw it to the DustBin.
+    - Create a dirty plastic garbage and throw it to the DustBin.
     - Clean one of the dirty plastic garbage and throw it to the `DustBin`.
     - Write your bin content to the console.
     - Empty your bin and print its content again to see how did it change.
